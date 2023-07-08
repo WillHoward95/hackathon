@@ -1,0 +1,12 @@
+.email-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.email-button {
+  width: 200px;
+  align-self: center;
+}

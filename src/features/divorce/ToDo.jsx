@@ -1,17 +1,12 @@
 import { toggleComplete } from "./todoSlice";
-import "./Counters.css";
-
 import { useDispatch } from "react-redux";
-
-const ToDo = ({ todo, handleDeleteItem }) => {
+const ToDo = ({ todo, handleDeleteTodo }) => {
   const dispatch = useDispatch();
-
   const handleToggleComplete = () => {
     dispatch(toggleComplete(todo.id));
   };
 
-  const { title, complete } = todo;
-
+  const { title, complete, id } = todo;
   console.log(complete);
   return (
     <>
@@ -22,17 +17,17 @@ const ToDo = ({ todo, handleDeleteItem }) => {
         >
           {title}
         </h3>
-
-        <button
-          type="button"
-          className="pe-auto btn-close"
-          disabled
-          aria-label="Close"
-          onClick={handleDeleteItem}
-        ></button>
+        <div
+          // type="button"
+          // className="pe-auto btn-close"
+          // disabled
+          // aria-label="Close"
+          onClick={() => handleDeleteTodo(id)}
+        >
+          X
+        </div>
       </li>
     </>
   );
 };
-
 export default ToDo;

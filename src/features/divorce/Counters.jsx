@@ -46,7 +46,7 @@ const Counters = () => {
   const id = useSelector(selectCounter);
 
   return (
-    <>
+    <div className="counterContainer">
       <div className="form-container">
         <form>
           <h4>Select the date of your special day</h4>
@@ -90,7 +90,7 @@ const Counters = () => {
         </form>
         <div className="counter-list">{ocassionRecords}</div>
       </div>
-    </>
+    </div>
   );
 };
 

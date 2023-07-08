@@ -45,7 +45,7 @@ const Occasion = (props) => {
         </div>
         <button
           type="button"
-          class="btn-close"
+          className="btn-close"
           aria-label="Close"
           onClick={() => {
             dispatch(deleteOcassion(record.id));

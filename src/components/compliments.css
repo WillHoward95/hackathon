@@ -1,16 +1,18 @@
 .tooltip-wrap {
-    position: relative;
-  }
-  .tooltip-wrap .tooltip-content {
-    display: none;
-    position: absolute;
-    bottom: 90%;
-    left: 15%;
-    right: 5%;
-    background-color: #d4c8c8;
-    padding: .5em;
-    min-width: 5rem;
-  }
-  .tooltip-wrap:hover .tooltip-content {
-    display: block;
-  }
+  position: relative;
+}
+.tooltip-wrap .tooltip-content {
+  display: none;
+  position: absolute;
+  bottom: 90%;
+  left: 55%;
+  right: 5%;
+  color: white;
+  background-color: rgb(13, 110, 253);
+  padding: 0.5em;
+  min-width: 5rem;
+  border-radius: 12px;
+}
+.tooltip-wrap:hover .tooltip-content {
+  display: block;
+}

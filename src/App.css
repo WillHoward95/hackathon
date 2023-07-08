@@ -37,3 +37,31 @@
     transform: translateY(0px);
   }
 }
+
+.siteTitle {
+  margin: 20px;
+}
+
+.counterContainer {
+  background-color: #e8f0f7;
+  padding: 10px;
+}
+
+.todoContainer {
+  background-color: #e8f0f7;
+  padding: 10px;
+}
+
+.todoContainer {
+  text-align: center;
+}
+
+.email-container {
+  width: 75%;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  width: 100%;
+}

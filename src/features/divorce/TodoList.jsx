@@ -21,7 +21,7 @@ const TodoList = () => {
               <ToDo
                 key={todo.id}
                 todo={todo}
-                handleDeleteItem={handleDeleteItem}
+                handleDeleteTodo={handleDeleteTodo}
                 toggleComplete={toggleComplete}
               />
             ))

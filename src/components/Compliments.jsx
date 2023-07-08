@@ -28,8 +28,8 @@ const Compliments = () => {
 
   return (
     <>
-      <div class="container text-center">
-        <div class="row">
+      <div className="container text-center">
+        <div className="row">
           <h2 className="col mt-5">Generate a compliment for your partner </h2>
           <p>
             {" "}
