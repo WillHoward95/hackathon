@@ -1,24 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: 0,
+  dateArray: [],
 };
 
 export const divorceSlice = createSlice({
   name: "divorce",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    setNewDate: (state, action) => {
+      state.dateArray.push(action.payload);
     },
-    decrement: (state) => {
-      state.value -= 1;
+    newDateInput: (state, action) => {
+      state.newDateInput = action.payload;
+    },
+    setNewDateTitle: (state, action) => {
+      state.newDateTitle = action.payload;
     },
   },
 });
 
-export const { increment, decrement } = divorceSlice.actions;
+export const { setNewDate, newDateInput, setNewDateTitle } =
+  divorceSlice.actions;
 
-export const selectCount = (state) => state.divorce.value;
+export const selectDateArray = (state) => state.divorce.dateArray;
+export const selectDateInput = (state) => state.divorce.newDateInput;
+export const selectNewDateTitle = (state) => state.divorce.newDateTitle;
 
 export default divorceSlice.reducer;
