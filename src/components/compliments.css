@@ -1,0 +1,16 @@
+.tooltip-wrap {
+    position: relative;
+  }
+  .tooltip-wrap .tooltip-content {
+    display: none;
+    position: absolute;
+    bottom: 90%;
+    left: 15%;
+    right: 5%;
+    background-color: #d4c8c8;
+    padding: .5em;
+    min-width: 5rem;
+  }
+  .tooltip-wrap:hover .tooltip-content {
+    display: block;
+  }

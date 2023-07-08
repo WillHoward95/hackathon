@@ -1,14 +1,14 @@
 import React from "react";
 import Counters from "./features/divorce/Counters";
-import Compliments from "./features/divorce/Compliments";
-import ToDo from "./features/divorce/ToDo";
+import Compliments from "./components/Compliments";
+import TodoContainer from "./features/divorce/TodoContainer";
 
 const App = () => {
   return (
     <>
       <Counters />
       <Compliments />
-      <ToDo />
+      <TodoContainer />
     </>
   );
 };

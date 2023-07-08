@@ -6,7 +6,6 @@ const Occasion = (props) => {
   const { record, newDateString } = props;
 
   const currentDate = useSelector(selectCurrentDate);
-  console.log(currentDate, "currentDate");
   const dateUTC = Date.parse(record.UTC);
 
   let dateDifference = dateUTC - currentDate;
@@ -32,7 +31,6 @@ const Occasion = (props) => {
     (modifiedDifference % (1000 * 60 * 60)) / (1000 * 60)
   );
   const secs = Math.floor((modifiedDifference % (1000 * 60)) / 1000);
-  console.log(months, days, hours, mins, secs);
 
   return (
     <div className="occasion-record">
