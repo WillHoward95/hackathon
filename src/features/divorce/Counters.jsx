@@ -24,13 +24,17 @@ const Counters = () => {
   }, 1000);
 
   let sortDateArray = [...dateArray];
+
   sortDateArray.sort((a, b) => {
-    if (a.UTC < b.UTC) {
+    const dateA = Date.parse(a);
+    const dateB = Date.parse(b);
+    if (dateA < dateB) {
       return -1;
     }
-    if (a.UTC > b.UTC) {
+    if (dateA > dateB) {
       return 1;
     }
+    return 0;
   });
 
   let ocassionRecords = sortDateArray.map((record, index) => {

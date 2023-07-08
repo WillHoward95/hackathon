@@ -1,25 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    compliment: "",
-}
+  compliment: "",
+};
 
 export const complimentSlice = createSlice({
-    name: 'compliments',
-    initialState,
+  name: "compliments",
+  initialState,
 
-    reducers: {
+  reducers: {
     setCompliment: (state, action) => {
-        state.compliment = action.payload;
+      state.compliment = action.payload;
     },
-    }
-
+  },
 });
 
-export const {
-    setCompliment,
-} = complimentSlice.actions;
+export const { setCompliment } = complimentSlice.actions;
 
-export const selectCompliment = (state) => state.compliments.compliment
+export const selectCompliment = (state) => state.compliments.compliment;
 
 export default complimentSlice.reducer;

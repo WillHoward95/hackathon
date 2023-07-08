@@ -6,8 +6,9 @@ import { selectTodos, deleteTodo, toggleComplete } from "./todoSlice";
 const TodoList = () => {
   const todos = useSelector(selectTodos);
   const dispatch = useDispatch();
-  const handleDeleteItem = () => {
-    dispatch(deleteTodo());
+  const handleDeleteTodo = (id) => {
+    console.log(id);
+    dispatch(deleteTodo(id));
   };
   return (
     <>

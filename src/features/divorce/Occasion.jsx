@@ -23,7 +23,9 @@ const Occasion = (props) => {
   }
 
   const months = Math.floor(modifiedDifference / (1000 * 60 * 60 * 24 * 30.44));
-  const days = Math.floor(modifiedDifference / (1000 * 60 * 60 * 24));
+  // const days = Math.floor(modifiedDifference / (1000 * 60 * 60 * 24));
+  const date = new Date(modifiedDifference);
+  const days = date.getUTCDate();
   const hours = Math.floor(
     (modifiedDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) - 1
   );

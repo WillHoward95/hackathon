@@ -13,24 +13,25 @@ const Input = () => {
   };
 
   const handleAddTodo = (e) => {
-    // const { value } = e.target.value;
-    // const todo = value;
-
+    if (todoTitle === "") {
+      return;
+    }
     dispatch(addTodo(todoTitle));
     setTodoTitle("");
   };
+
   return (
-    <>
+    <div className="w-80  d-flex justify-content-center flex-wrap my-4">
       <input
-        style={{ width: "500px" }}
+        className="w-60 to-do-input"
         type="text"
         value={todoTitle}
         onChange={handleTodoText}
       />
-      <button style={{ width: "500px" }} onClick={handleAddTodo}>
+      <button className="btn btn-primary w-" onClick={handleAddTodo}>
         Add Todos
       </button>
-    </>
+    </div>
   );
 };
 

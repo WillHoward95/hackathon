@@ -1,4 +1,5 @@
 import { toggleComplete } from "./todoSlice";
+import "./Counters.css";
 
 import { useDispatch } from "react-redux";
 
@@ -14,15 +15,21 @@ const ToDo = ({ todo, handleDeleteItem }) => {
   console.log(complete);
   return (
     <>
-      <li>
-        <h2
-          className={complete ? "complete" : "incomplete"}
+      <li className="d-flex flex-row my-4 justify-content-between border-bottom border-1">
+        <h3
+          className={complete ? "text-decoration-line-through" : "text-primary"}
           onClick={handleToggleComplete}
         >
           {title}
-        </h2>
+        </h3>
 
-        <div onClick={handleDeleteItem}>X</div>
+        <button
+          type="button"
+          className="pe-auto btn-close"
+          disabled
+          aria-label="Close"
+          onClick={handleDeleteItem}
+        ></button>
       </li>
     </>
   );
