@@ -5,8 +5,11 @@ import {
   selectDateInput,
   setNewDateTitle,
   selectNewDateTitle,
+  setCurrentDate,
 } from "./divorceSlice";
 import { useSelector, useDispatch } from "react-redux";
+import Occasion from "./Occasion";
+import "./Counters.css";
 
 const Counters = () => {
   const dispatch = useDispatch();
@@ -15,57 +18,60 @@ const Counters = () => {
   const newDateString = useSelector(selectDateInput);
   const newDateTitle = useSelector(selectNewDateTitle);
 
-  const dateUTC = Date.parse(newDateString);
-  const currentDate = Date.now();
+  setInterval(() => {
+    dispatch(setCurrentDate(Date.now()));
+  }, 1000);
 
-  const dateDifference = dateUTC - currentDate;
+  console.log(newDateString, "HERE");
 
-  const months = Math.floor(dateDifference / (1000 * 60 * 60 * 24 * 30.44));
-  const days = Math.floor(dateDifference / (1000 * 60 * 60 * 24));
-  const hours = Math.floor(
-    (dateDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) - 1
-  );
-  const mins = Math.floor((dateDifference % (1000 * 60 * 60)) / (1000 * 60));
-  const secs = Math.floor((dateDifference % (1000 * 60)) / 1000);
-
-  console.log(months, days, hours, mins, secs);
+  let ocassionRecords = dateArray.map((record, index) => {
+    return <Occasion newDateString={newDateString} record={record} />;
+  });
 
   return (
     <>
-      <form>
-        <input
-          type="date"
-          onChange={(e) => {
-            dispatch(newDateInput(e.target.value));
-          }}
-        ></input>
-        <input
-          type="text"
-          onInput={(e) => {
-            dispatch(setNewDateTitle(e.target.value));
-          }}
-        ></input>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            if (newDateString && newDateTitle) {
-              dispatch(setNewDate({ UTC: newDateString, title: newDateTitle }));
-            }
-            dispatch(newDateInput(""));
-            dispatch(setNewDateTitle(""));
-          }}
-        >
-          Add Date
-        </button>
-      </form>
-      {dateArray.map((item) => {
-        return (
-          <>
-            <p>{item.title}</p>
-            <p>{item.UTC}</p>
-          </>
-        );
-      })}
+      <div className="form-container">
+        <form>
+          <input
+            type="date"
+            onChange={(e) => {
+              console.log(e.target.value);
+              dispatch(newDateInput(e.target.value));
+            }}
+            min="2023-01-01"
+            max="2023-12-31"
+            value={newDateString}
+          ></input>
+          <input
+            type="text"
+            onInput={(e) => {
+              dispatch(setNewDateTitle(e.target.value));
+            }}
+            value={newDateTitle}
+          ></input>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              if (newDateString && newDateTitle) {
+                dispatch(
+                  setNewDate({ UTC: newDateString, title: newDateTitle })
+                );
+              }
+              dispatch(setNewDateTitle(""));
+            }}
+          >
+            Add Date
+          </button>
+        </form>
+        <div className="counter-container">
+          <div className="counter-list-headers">
+            <div className="Title"></div>
+            <div className="Date"></div>
+            <div className="Countdown"></div>
+          </div>
+          <div className="counter-list">{ocassionRecords}</div>
+        </div>
+      </div>
     </>
   );
 };
