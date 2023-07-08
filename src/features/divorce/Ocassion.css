@@ -6,7 +6,11 @@
   justify-content: space-evenly;
   background-color: #f6f6f7;
   margin: 15px;
-  /* flex-direction: column; */
+  padding: 30px;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  border: 1px solid #dee2e6;
+  position: relative;
 }
 
 .ocassion-title {
@@ -15,4 +19,18 @@
 
 .countdown {
   text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.top-banner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

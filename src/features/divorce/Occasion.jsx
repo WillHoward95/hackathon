@@ -1,9 +1,11 @@
 import "./Ocassion.css";
 import { selectCurrentDate } from "./divorceSlice";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteOcassion } from "./divorceSlice";
 
 const Occasion = (props) => {
-  const { record, newDateString } = props;
+  const { record } = props;
+  const dispatch = useDispatch();
 
   const currentDate = useSelector(selectCurrentDate);
   const dateUTC = Date.parse(record.UTC);
@@ -16,14 +18,12 @@ const Occasion = (props) => {
     modifiedDifference += 365 * 24 * 60 * 60 * 1000;
   }
 
+  if (dateDifference === 0) {
+    //email function
+  }
+
   const months = Math.floor(modifiedDifference / (1000 * 60 * 60 * 24 * 30.44));
-  // const days = Math.floor(
-  //   (modifiedDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 24) + 1
-  // );
-  const days = Math.floor(modifiedDifference / (1000 * 60 * 60 * 24)) % 30;
-
-  // const days = Math.floor(modifiedDifference / (1000 * 60 * 60 * 24));
-
+  const days = Math.floor(modifiedDifference / (1000 * 60 * 60 * 24));
   const hours = Math.floor(
     (modifiedDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) - 1
   );
@@ -34,11 +34,21 @@ const Occasion = (props) => {
 
   return (
     <div className="occasion-record">
-      <div className="record-header">
-        <h1 className="ocassion-title">{record.title}</h1>
-      </div>
-      <div className="finish-date">
-        <small>{record.UTC}</small>
+      <div className="top-banner">
+        <div className="record-header">
+          <h1 className="ocassion-title">{record.title}</h1>
+        </div>
+        <div className="finish-date">
+          <small>{record.UTC}</small>
+        </div>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          onClick={() => {
+            dispatch(deleteOcassion(record.id));
+          }}
+        ></button>
       </div>
       <div className="countdown">
         <small>

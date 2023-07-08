@@ -6,7 +6,7 @@ const ToDo = ({ todo, handleDeleteItem }) => {
   const dispatch = useDispatch();
 
   const handleToggleComplete = () => {
-    dispatch(toggleComplete());
+    dispatch(toggleComplete(todo.id));
   };
 
   const { title, complete } = todo;
